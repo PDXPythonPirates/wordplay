@@ -9,8 +9,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return """Flask is running!
-    try the <a href="/api/v1/data">data</a> endpoint
+    return """<h1>Flask is running!</h1>
+    <p>Try the <a href="/api/v1/data">data</a> endpoint</p>
+    <p>Score letters <a href="/api/v1/score?w=wombat">'wombat'</a>
     """
 
 
