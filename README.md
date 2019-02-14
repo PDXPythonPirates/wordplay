@@ -15,7 +15,7 @@ Activate the virtual environment for this repo:
 
 Install the dependency libraries:
 
-    pipenv install
+    pipenv install -d
 
 Try running the tests:
 
