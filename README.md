@@ -32,6 +32,19 @@ Our goal is to build a web service with a few endpoints all revolving around a w
 | /api/word/{word} | GET | Returns whether word is in lexicon and scrabble score
 | /api/matches/{letters} | GET | Performs word matching in lexicon, sorted by scrabble score
 
+## Letter Scoring
+
+Default scoring is to be calculated using Scrabble letter point values.
+
+| Point Value | Letters                      |
+|-------------|------------------------------|
+| 1           | A, E, I, L, N, O, R, S, T, U |
+| 2           | D, G                         |
+| 3           | B, C, M, P                   |
+| 4           | F, H, V, W, Y                |
+| 5           | K                            |
+| 8           | J, X                         |
+| 10          | Q, Z                         |
 
 <a name="devsetup"></a>
 # Dev Environment Setup
