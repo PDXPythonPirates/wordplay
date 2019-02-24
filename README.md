@@ -6,13 +6,11 @@ A hands on project to build a wordplay solver with a web service API
 
 # Contents
 - [Overview](#overview)
-- [Dev Environment Setup](#devsetup)
-  - [Pipenv Setup](#pipenv)
-  - [Alternative: Python `venv` and Pip](#venv_pip)
-  - [Verify Flask](#verify_flask)
-- [Development Milestones](#milestones)
-
-<a name="overview"></a>
+- [Dev Environment Setup](#dev-environment-setup)
+  - [Set Up Using `pipenv`](#set-up-using-pipenv)
+  - [Alternative Set Up: Python `venv` and Pip](#alternative-set-up-python-venv-and-pip)
+  - [Verify Flask](#verify-flask)
+- [Development Milestones](#development-milestones)
 
 # Overview
 
@@ -28,9 +26,10 @@ Our goal is to build a web service with a few endpoints all revolving around a w
 
 | Endpoint URL | HTTP Verb | Description |
 |--------------|-----------|-------------|
-| /api/score?l={letters} | GET | Returns the scrabble score of the letters
-| /api/word/{word} | GET | Returns whether word is in lexicon and scrabble score
-| /api/matches/{letters} | GET | Performs word matching in lexicon, sorted by scrabble score
+| /api/v1/score?l={letters} | GET | Returns the scrabble score of the letters
+| /api/v1/word/{word} | GET | Returns whether word is in lexicon and scrabble score
+| /api/v1/word/{word} | POST | *Optional:* Adds a new word to the lexicon
+| /api/v1/matches/{letters} | GET | Performs word matching against lexicon, sorted by scrabble score
 
 ## Letter Scoring
 
@@ -46,7 +45,7 @@ Default scoring is to be calculated using Scrabble letter point values.
 | 8           | J, X                         |
 | 10          | Q, Z                         |
 
-<a name="devsetup"></a>
+
 # Dev Environment Setup
 
 This project makes use of third-party packages that do not ship with Python standard library.  It is recommended a [Python virtual environment][about_python_virtualenv] be configured to prevent the installed packages from conflicting with other Python projects on the host machine.
@@ -55,7 +54,6 @@ I recommend starting with `pipenv` and falling back to alternative tools if need
 
 Alternernatively the virtual environment and packages can be configured separatetly using the Python `venv` library and the `pip` tool.
 
-<a name="pipenv"></a>
 ## Set Up Using `pipenv`
 
 The `pipenv` tool serves 2 roles: 
@@ -74,6 +72,8 @@ Activate the virtual environment from within the repo directory:
     cd wordplay
     pipenv shell
 
+> NOTE: you need to activate the virtual environment each time you launch a new command line shell by invoking `pipenv shell`.
+
 Install the 3rd party packages:
 
     pipenv install --dev
@@ -84,7 +84,6 @@ Confirm `pytest` is available by running the following from the command line:
 
     pytest .
 
-<a name="venv_pip"></a>
 ## Alternative Set Up: Python `venv` and Pip
 
 Change into the project directory you cloned and create a new virtual environment using the `venv` library:
@@ -111,7 +110,6 @@ Try running the tests:
 
     pytest .
 
-<a name="verify_flask"></a>
 ## Verify Flask
 
 Verify Flask launches:
@@ -121,16 +119,33 @@ Verify Flask launches:
 Open your browser to http://127.0.0.1:5000/
 
 
-<a name="milestones"></a>
-# Milestones
+# Development Milestones
 
-1) Set up your developer environment.  Confirm Flask and PyTest are installed
-2) Edit `wordplay.py` and get `score_word()` functional so that the tests pass.
+1) Set up your developer environment.  Confirm Flask and PyTest are installed.
+2) Edit `wordplay.py` and make `score_word()` functional so that the tests pass.
 3) Play with Flask.  Try modifying the `/` URL to load from a template instead of the hardcoded response string.
 4) Write a function to read in the lexicon file `sowpods.txt` and return the contents as a list.  
-  The loader function should skip any empty lines or lines that start with `#`
+  The loader function should skip any empty lines or lines that start with '`#`'.  
   The words should be converted to lowercase.  
-5) ...
+  *Write tests to demostrate this behaves correctly.*
+5) Create an object that is initialized using a list of words and provides a means of testing if a word is contained in the list.  
+  The result should return back a 2-element tuple: the first element is the scrabble score of the word, the second element is the word itself.  
+  If the word is not contained an empty tuple should be returned, or an exception thrown (your choice).  
+  *Write tests to demonstrate this object behaves as expected.  The sample word list in the test can be hard coded and does not need to be read from the `sowpods.txt` lexicon file.*
+6) Add the `/api/v1/words/{word}` endpoint to your Flask application.  
+  The word lookup should be case insensitive.  
+  If the word is contained in the lexicon an `HTTP 200` should be returned as well as a JSON response with the word and its scrabble score.  
+  If the word is not in the lexicon an `HTTP 404` response should be returned and an appropriate JSON encoded message.  
+7) Update the object created in step 5, adding functionality to search for words that can be created using a supplied list of letters.  
+  Start with something simple, get it working, then discuss with the group how this can be optimized.  
+  *Again, write tests to demonstrate this object behaves as suggested.*
+8) Add the `/api/v1/matches/{letters}` endpoint to your Flask application.  
+  The matching functionality should be case insensitive.  
+  The response JSON should be sorted by score from high to low, with a secondary lexicographic sort by word.
+
+
+
+
 
 [W]: readme_assets/letter_tile_w.jpg
 [O]: readme_assets/letter_tile_o.jpg
