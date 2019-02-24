@@ -36,7 +36,7 @@ Our goal is to build a web service with a few endpoints all revolving around a w
 <a name="devsetup"></a>
 # Dev Environment Setup
 
-This project makes use of third-party packages that do not ship with Python standard library.  It is recommended a [Python virtual environment](about_python_virtualenv) be configured to prevent the installed packages from conflicting with other Python projects on the host machine.
+This project makes use of third-party packages that do not ship with Python standard library.  It is recommended a [Python virtual environment][about_python_virtualenv] be configured to prevent the installed packages from conflicting with other Python projects on the host machine.
 
 I recommend starting with `pipenv` and falling back to alternative tools if needed. Pipenv is a convenience tool that facilitates both managing a virtual environment as well as installing packages.  Its usage is consistent across Windows and unix systems.
 
