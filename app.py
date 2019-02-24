@@ -10,8 +10,8 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     return """<h1>Flask is running!</h1>
-    <p>Try the <a href="/api/v1/data">data</a> endpoint</p>
-    <p>Score letters <a href="/api/v1/score?w=wombat">'wombat'</a>
+    <p>Try accessing the <a href="/api/v1/data">dummy data</a> endpoint.</p>
+    <p>Score letters <a href="/api/v1/score?l=wombat">'wombat'</a></p>
     """
 
 
@@ -24,7 +24,7 @@ def dummy_data():
 
 @app.route("/api/v1/score")
 def score_word():
-    letters = request.args.get('w')
+    letters = request.args.get('l')
     score = wordplay.score_word(letters)
     result = {'letters': sorted(list(letters)),
               'score': score}
