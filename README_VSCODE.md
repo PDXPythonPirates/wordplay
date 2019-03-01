@@ -46,6 +46,7 @@ Additional VS Code instructions that accompany the [Wordplay mini project](https
   If VS Code does not automatically activate your virtual environment, request it specifically:  
   Go to menu _View > Command Palette_  
   Type and select `Terminal: Create New Integrated Terminal (In Active Workspace)`  
+  You can confirm your virtual environment is active when `(wordplay)` is displayed in the prompt.  
   From the command prompt type and execute:  
   `pytest -v`
 7) Run `pytest` from the GUI.  
