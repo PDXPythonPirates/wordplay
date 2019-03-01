@@ -1,5 +1,4 @@
-![W][W]![O][O]![R][R]![D][D]  
-![P][P]![L][L]![A][A]![Y][Y]
+![W][W]![O][O]![R][R]![D][D]![P][P]![L][L]![A][A]![Y][Y]
 
 ---
 A hands on project to build a wordplay solver with a web service API
@@ -9,6 +8,7 @@ A hands on project to build a wordplay solver with a web service API
 - [Dev Environment Setup](#dev-environment-setup)
   - [Set Up Using `pipenv`](#set-up-using-pipenv)
   - [Alternative Set Up: Python `venv` and Pip](#alternative-set-up-python-venv-and-pip)
+  - [Verify Pytest](#verify-pytest)
   - [Verify Flask](#verify-flask)
 - [Development Milestones](#development-milestones)
 
@@ -48,6 +48,11 @@ Default scoring is to be calculated using Scrabble letter point values.
 
 # Dev Environment Setup
 
+Additional instructions are available for configuring development editors:
+- [VS Code instructions][vs_code_setup]
+- [PyCharm instructions][pycharm_setup]
+- Spyder (if somebody wants to write one)
+
 This project makes use of third-party packages that do not ship with Python standard library.  It is recommended a [Python virtual environment][about_python_virtualenv] be configured to prevent the installed packages from conflicting with other Python projects on the host machine.
 
 I recommend starting with `pipenv` and falling back to alternative tools if needed. Pipenv is a convenience tool that facilitates both managing a virtual environment as well as installing packages.  Its usage is consistent across Windows and unix systems.
@@ -80,9 +85,6 @@ Install the 3rd party packages:
 
 This will install Flask and PyTest libraries.
 
-Confirm `pytest` is available by running the following from the command line:
-
-    pytest .
 
 ## Alternative Set Up: Python `venv` and Pip
 
@@ -106,13 +108,16 @@ Install the 3rd party packages using `pip3`
 
     pip3 install -r requirements.txt
 
-Try running the tests:
 
-    pytest .
+## Verify Pytest
+
+Confirm `pytest` is available by running the following from the command line:
+
+    pytest -v
 
 ## Verify Flask
 
-Verify Flask launches:
+Verify Flask launches from the command line:
 
     python3 app.py
 
@@ -147,13 +152,16 @@ Open your browser to http://127.0.0.1:5000/
 
 
 
-[W]: readme_assets/letter_tile_w.jpg
-[O]: readme_assets/letter_tile_o.jpg
-[R]: readme_assets/letter_tile_r.jpg
-[D]: readme_assets/letter_tile_d.jpg  
-[P]: readme_assets/letter_tile_p.jpg
-[L]: readme_assets/letter_tile_l.jpg
-[A]: readme_assets/letter_tile_a.jpg
-[Y]: readme_assets/letter_tile_y.jpg
+[W]: readme_assets/letter_tile_w_small.jpg
+[O]: readme_assets/letter_tile_o_small.jpg
+[R]: readme_assets/letter_tile_r_small.jpg
+[D]: readme_assets/letter_tile_d_small.jpg  
+[P]: readme_assets/letter_tile_p_small.jpg
+[L]: readme_assets/letter_tile_l_small.jpg
+[A]: readme_assets/letter_tile_a_small.jpg
+[Y]: readme_assets/letter_tile_y_small.jpg
 
 [about_python_virtualenv]: https://docs.python.org/3/tutorial/venv.html
+[vs_code_setup]: https://github.com/PDXPythonPirates/wordplay/blob/master/README_VSCODE.md
+[pycharm_setup]: https://github.com/PDXPythonPirates/wordplay/blob/master/README_PYCHARM.md
+
