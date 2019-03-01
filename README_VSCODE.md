@@ -25,7 +25,7 @@ Additional VS Code instructions that accompany the [Wordplay mini project](https
   Type and select `Python: Configure Unit Tests`  
   Select `.` for the directory.
 4) Configure the VS code terminal to use the virtual environment.  
-  Open the project configuration file `.vscode/settings.json`  
+  Open the VS configuration file at the root of the project `.vscode/settings.json`  
   Add the following line to the JSON:  
   `"python.terminal.activateEnvironment": true,`  
   You should have something like:  
