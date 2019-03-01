@@ -97,6 +97,12 @@ venv.bak/
 # VS Code
 .vscode
 
+# PyCharm
+.idea
+
+# Mac Finder metadata
+.DS_Store
+
 # Rope project settings
 .ropeproject
 
