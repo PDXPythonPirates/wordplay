@@ -19,9 +19,9 @@ Additional PyCharm instructions that accompany the [Wordplay mini project](https
   Choose your virtual environment in the drop down list in the right hand area.  
   ![PyCharm project interpreter](readme_assets/pycharm_project_interpreter.png)
 2) Run `pytest` from the built in Terminal.  
+  Launch the PyCharm Terminal from the bottom frame, just below the editor pane.  
   You can confirm your virtual environment is active when `(wordplay)` is displayed in the prompt.  
   _If PyCharm does not automatically activate your virtual environment, review step 1._  
-  Launch the PyCharm Terminal from the bottom frame, just below the editor pane.  
   From the command prompt type and execute:  
   `pytest -v`  
 3) Run `pytest` from the GUI.  
