@@ -135,7 +135,7 @@ Open your browser to http://127.0.0.1:5000/
   *Write tests to demostrate this behaves correctly.*
 5) Create a class that is initialized using a list of words and provides a means of testing if a word is contained in the list.  
   The result should return back a 2-element tuple: the first element is the scrabble score of the word, the second element is the word itself.  
-  If the word is not contained `None` should be returned, or an exception thrown (your choice).  
+  If the word is not contained, `None` should be returned or an exception thrown (your choice).  
   *Write tests to demonstrate this object behaves as expected.  The sample word list in the test can be hard coded and does not need to be read from the `sowpods.txt` lexicon file.*
 6) Add the `/api/v1/words/{word}` endpoint to your Flask application.  
   The word lookup should be case insensitive.  
