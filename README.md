@@ -133,7 +133,7 @@ Open your browser to http://127.0.0.1:5000/
   The loader function should skip any empty lines or lines that start with '`#`'.  
   The words should be converted to lowercase.  
   *Write tests to demostrate this behaves correctly.*
-5) Create an object that is initialized using a list of words and provides a means of testing if a word is contained in the list.  
+5) Create a class that is initialized using a list of words and provides a means of testing if a word is contained in the list.  
   The result should return back a 2-element tuple: the first element is the scrabble score of the word, the second element is the word itself.  
   If the word is not contained `None` should be returned, or an exception thrown (your choice).  
   *Write tests to demonstrate this object behaves as expected.  The sample word list in the test can be hard coded and does not need to be read from the `sowpods.txt` lexicon file.*
