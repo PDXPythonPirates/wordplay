@@ -64,7 +64,7 @@ I recommend managing the virtual environment using the tools that come with Pyth
 
 Alternatively, the adventurous might want to try the newer utility `Pipenv`.  [Pipenv][pipenv] is a convenience tool that facilitates both managing a virtual environment as well as installing packages.  Its usage is consistent across Windows and unix systems.
 
-I have experienced some behavior with a Pipenv environment getting into a weird state that required running some extra maintenance commands for clean up.   If you would rather not tinker with the latest and greatest, then stick with `venv` and `pip`.
+I have experienced some unexpected behavior (infrequent) with a Pipenv environment getting into a weird state that required running pipenv maintenance commands for clean up.   If you would rather not tinker with the latest and greatest, then stick with `venv` and `pip`.
 
 
 ## Set Up with Python `venv` and `pip`
