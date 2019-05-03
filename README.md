@@ -5,12 +5,13 @@ A hands on project to build a wordplay solver with a web service API
 
 # Contents
 
+- [Contents](#contents)
 - [Overview](#overview)
   - [Letter Scoring](#letter-scoring)
 - [Dev Environment Setup](#dev-environment-setup)
   - [Set Up with Python `venv` and `pip`](#set-up-with-python-venv-and-pip)
-      - [Windows:](#windows)
-      - [Mac/Linux:](#maclinux)
+      - [Windows](#windows)
+      - [Mac/Linux](#maclinux)
   - [Alternative Set Up with `pipenv`](#alternative-set-up-with-pipenv)
   - [Verify Pytest](#verify-pytest)
   - [Verify Flask](#verify-flask)
@@ -73,7 +74,7 @@ I have experienced some behavior with a Pipenv environment getting into a weird 
   3. *Activate* the virtual environment.
   4. Install 3rd party libraries with `pip`
 
-#### Windows:
+#### Windows
 
 _*Run `CMD.exe` to open a new command shell and execute the following statements from the command line:*_
 
@@ -90,7 +91,7 @@ _*Run `CMD.exe` to open a new command shell and execute the following statements
     venv\Scripts\activate.bat
 
 
-#### Mac/Linux:
+#### Mac/Linux
 
 _*Launch `Terminal` to open a new terminal shell and execute the following statements from the command line:*_
 
