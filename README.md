@@ -4,39 +4,44 @@
 A hands on project to build a wordplay solver with a web service API
 
 # Contents
+
 - [Overview](#overview)
+  - [Letter Scoring](#letter-scoring)
 - [Dev Environment Setup](#dev-environment-setup)
-  - [Set Up Using `pipenv`](#set-up-using-pipenv)
-  - [Alternative Set Up: Python `venv` and Pip](#alternative-set-up-python-venv-and-pip)
+  - [Set Up with Python `venv` and `pip`](#set-up-with-python-venv-and-pip)
+      - [Windows:](#windows)
+      - [Mac/Linux:](#maclinux)
+  - [Alternative Set Up with `pipenv`](#alternative-set-up-with-pipenv)
   - [Verify Pytest](#verify-pytest)
   - [Verify Flask](#verify-flask)
 - [Development Milestones](#development-milestones)
 
 # Overview
 
-This project provides an opportunity for the aspiring Pythonista to get hands-on experience with some of common tools used in the Python development ecosystem.  
+This project provides an opportunity to get hands-on experience with some of common tools used in the Python development ecosystem.  
 
 Libraries and tools used include: 
-- [PyTest](https://docs.pytest.org/en/latest/)
+- [PyTest](https://docs.pytest.org/)
 - [Flask](http://flask.pocoo.org/)
-- [Pipenv](https://pipenv.readthedocs.io/en/latest/)
+- [Venv library][venv] and [pip][pip_tool] with virtual environments
+- [Pipenv][pipenv]
 - [Git](https://git-scm.com/) and [GitHub](https://github.com/)
 
 Our goal is to build a web service with a few endpoints all revolving around a wordplay solver theme:
 
-| Endpoint URL | HTTP Verb | Description |
-|--------------|-----------|-------------|
-| /api/v1/score?l={letters} | GET | Returns the scrabble score of the letters
-| /api/v1/word/{word} | GET | Returns whether word is in lexicon and scrabble score
-| /api/v1/word/{word} | POST | *Optional:* Adds a new word to the lexicon
-| /api/v1/matches/{letters} | GET | Performs word matching against lexicon, sorted by scrabble score
+| Endpoint URL              | HTTP Verb | Description                                                      |
+| ------------------------- | --------- | ---------------------------------------------------------------- |
+| /api/v1/score?l={letters} | GET       | Returns the scrabble score of the letters                        |
+| /api/v1/word/{word}       | GET       | Returns whether word is in lexicon and scrabble score            |
+| /api/v1/word/{word}       | POST      | *Optional:* Adds a new word to the lexicon                       |
+| /api/v1/matches/{letters} | GET       | Performs word matching against lexicon, sorted by scrabble score |
 
 ## Letter Scoring
 
 Default scoring is to be calculated using Scrabble letter point values.
 
 | Point Value | Letters                      |
-|-------------|------------------------------|
+| ----------- | ---------------------------- |
 | 1           | A, E, I, L, N, O, R, S, T, U |
 | 2           | D, G                         |
 | 3           | B, C, M, P                   |
@@ -51,19 +56,62 @@ Default scoring is to be calculated using Scrabble letter point values.
 Additional instructions are available for configuring development editors:
 - [VS Code instructions][vs_code_setup]
 - [PyCharm instructions][pycharm_setup]
-- Spyder (if somebody wants to write one)
 
-This project makes use of third-party packages that do not ship with Python standard library.  It is recommended a [Python virtual environment][about_python_virtualenv] be configured to prevent the installed packages from conflicting with other Python projects on the host machine.
+This project makes use of third-party packages that do not ship with Python standard library.  It is recommended a [Python virtual environment][venv] be configured to prevent the installed packages from conflicting with other Python projects on the host machine.
 
-I recommend starting with `pipenv` and falling back to alternative tools if needed. Pipenv is a convenience tool that facilitates both managing a virtual environment as well as installing packages.  Its usage is consistent across Windows and unix systems.
+I recommend managing the virtual environment using the tools that come with Python 3 (the `venv` library and `pip` tool).  This is the workflow most other tutorials use, so becoming familiar with it has added benefits.
 
-Alternernatively the virtual environment and packages can be configured separatetly using the Python `venv` library and the `pip` tool.
+Alternatively, the adventurous might want to try the newer utility `Pipenv`.  [Pipenv][pipenv] is a convenience tool that facilitates both managing a virtual environment as well as installing packages.  Its usage is consistent across Windows and unix systems.
 
-## Set Up Using `pipenv`
+I have experienced some behavior with a Pipenv environment getting into a weird state that required running some extra maintenance commands for clean up.   If you would rather not tinker with the latest and greatest, then stick with `venv` and `pip`.
+
+
+## Set Up with Python `venv` and `pip`
+
+  1. Change directory into where you cloned the project.
+  2. Create a new virtual environment using python with the `venv` library.
+  3. *Activate* the virtual environment.
+  4. Install 3rd party libraries with `pip`
+
+#### Windows:
+
+_*Run `CMD.exe` to open a new command shell and execute the following statements from the command line:*_
+
+    cd wordplay
+
+    python -m venv venv
+
+    venv\Scripts\activate.bat
+
+    pip install -r requirements.txt
+
+**NOTE: you need to activate the virtual environment each time you launch a new command line shell.  Do this by re-running the `activate.bat` script.**
+
+    venv\Scripts\activate.bat
+
+
+#### Mac/Linux:
+
+_*Launch `Terminal` to open a new terminal shell and execute the following statements from the command line:*_
+
+    cd wordplay
+
+    python3 -m venv venv
+
+    source venv/bin/activate
+
+    pip install -r requirements.txt
+
+**NOTE: you need to activate the virtual environment each time you launch a new command line shell.  Do this by re-sourcing the `activate` script.**
+
+    source venv/bin/activate
+
+
+## Alternative Set Up with `pipenv`
 
 The `pipenv` tool serves 2 roles: 
-1) creating and "activating" a virtual environment
-2) installing 3rd party packages
+  1. creating and *activating* a virtual environment
+  2. installing 3rd party packages
 
 Pipenv does not ship with Python and needs to be installed from the command line using pip (a.k.a. `pip3`).
 
@@ -77,36 +125,13 @@ Activate the virtual environment from within the repo directory:
     cd wordplay
     pipenv shell
 
-> NOTE: you need to activate the virtual environment each time you launch a new command line shell by invoking `pipenv shell`.
+**NOTE: you need to activate the virtual environment each time you launch a new command line shell by reinvoking `pipenv shell`.**
 
 Install the 3rd party packages:
 
     pipenv install --dev
 
 This will install Flask and PyTest libraries.
-
-
-## Alternative Set Up: Python `venv` and Pip
-
-Change into the project directory you cloned and create a new virtual environment using the `venv` library:
-
-    # change to the project directory you cloned
-    cd wordplay
-    python3 -m venv venv
-
-Activate the virtual environment.
-
-- On Windows:
-
-    venv\Scripts\activate.bat
-
-- On Mac/Linux
-
-    source venv/bin/activate
-
-Install the 3rd party packages using `pip3`
-
-    pip3 install -r requirements.txt
 
 
 ## Verify Pytest
@@ -119,7 +144,7 @@ Confirm `pytest` is available by running the following from the command line:
 
 Verify Flask launches from the command line:
 
-    python3 app.py
+    python app.py
 
 Open your browser to http://127.0.0.1:5000/
 
@@ -161,7 +186,9 @@ Open your browser to http://127.0.0.1:5000/
 [A]: readme_assets/letter_tile_a_small.jpg
 [Y]: readme_assets/letter_tile_y_small.jpg
 
-[about_python_virtualenv]: https://docs.python.org/3/tutorial/venv.html
+[venv]: https://docs.python.org/3/tutorial/venv.html
+[pip_tool]: https://docs.python.org/3/tutorial/venv.html#managing-packages-with-pip
+[pipenv]: https://docs.pipenv.org/
 [vs_code_setup]: https://github.com/PDXPythonPirates/wordplay/blob/master/README_VSCODE.md
 [pycharm_setup]: https://github.com/PDXPythonPirates/wordplay/blob/master/README_PYCHARM.md
 
