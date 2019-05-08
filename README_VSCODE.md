@@ -1,8 +1,8 @@
-# Wordplay: VS Code Configuration
+# Wordplay: VS Code Configuration <!-- omit in toc -->
 
 Additional VS Code instructions that accompany the [Wordplay mini project](https://github.com/PDXPythonPirates/wordplay).
 
-# Contents
+# Contents <!-- omit in toc -->
 - [References](#references)
 - [Quick Set Up](#quick-set-up)
 
@@ -19,10 +19,10 @@ Additional VS Code instructions that accompany the [Wordplay mini project](https
 2) Select your Python interpreter via the Command Palette:  
   Go to menu _View > Command Palette_  
   Type and select `Python: Select Interpreter`  
-  Select your virtual env from the list (look for "pipenv")
+  Select your virtual env from the list (look for "venv" or "pipenv")
 3) Configure this project for **pytest** via the Command Palette:  
   Go to menu _View > Command Palette_  
-  Type and select `Python: Configure Unit Tests`  
+  Type and select `Python: Configure Tests`  
   Select `pytest` from the options.  
   Select `.` for the directory.
 4) Configure the VS code terminal to use the virtual environment.  
